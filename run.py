@@ -23,6 +23,9 @@ settings = {
 
 
 try:
+    #如果没有日志目录就创建
+    if not os.path.exists('log'):
+        os.makedirs('log')
     logging.basicConfig(level=logging.NOTSET,
 		format='%(asctime)s %(levelname)-8s %(message)s',
 		datefmt='%Y-%m-%d %H:%M:%S',
