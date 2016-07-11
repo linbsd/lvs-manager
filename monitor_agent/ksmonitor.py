@@ -37,7 +37,8 @@ class MyDaemon():
         timestamp = time.time()
         if not os.path.isfile(lvstraffic_lastfile):
             result = self.lvstraffic_resolve()
-            f = open(lvstraffic_lastfile,'w')
+            #不预先创建文件就无法打开
+            f = open(lvstraffic_lastfile,'w+')
             f.write(result)
             f.close()
             return None
