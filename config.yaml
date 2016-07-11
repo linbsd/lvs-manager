@@ -1,5 +1,5 @@
 base:
-  NUMBER_OF_PROCESSES: 4
+  NUMBER_OF_PROCESSES: 2
 
 agent:
   -  id: bj_lvs212
