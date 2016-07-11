@@ -285,6 +285,10 @@ class Node(object):
 
     @cherrypy.expose
     def GetLvsTraffic(self):
+        # 如果没有数据目录就创建,lvstraffic文件需要初始化
+        if not os.path.exists('data'):
+            os.makedirs('data')
+
         result = json.loads(open(os.path.join(cur_dir,'data/','lvstraffic')).read())
         return json.dumps(result,sort_keys=False, indent=4, separators=(',', ': '))
 
