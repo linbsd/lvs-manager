@@ -81,7 +81,8 @@ class MongoSession():
     def upsert(self,data_type,find,update):
         collection = self.db[data_type]
         try:
-            _id = collection.update_one(find,update,True)
+            _id = collection.update(find,update,True)
+
             #self.conn.end_request()
             logging.info('Method: Upsert | table: %s | result: Success ' % (data_type))
             return id
