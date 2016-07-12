@@ -4,3 +4,6 @@ lvs_cluster_alert_api: "http://lvs.ksops.com:9080/api/alert"
 mail_host: 10.10.0.43
 mail_me: "lvs-alert<lvs-alert@ijinshan.com>"
 logfile: "/var/log/keepalived_log_analyze.log"
+statsd: off
+statsd_server: 10.13.81.21
+statsd_port:  9

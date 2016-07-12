@@ -48,7 +48,7 @@ class MongoSession():
 
     def close(self):
         try:
-            self.conn.end_request()
+            #self.conn.end_request()
             self.conn.close()
             logging.info('close mongo connection Success !')
         except Exception, e:
@@ -61,7 +61,7 @@ class MongoSession():
         
         try:
             _id = collection.insert(insert_data)
-            self.conn.end_request()
+            #self.conn.end_request()
             logging.info('Insert data (ID:%s) Success !' % id)
             return id
         except Exception, e:
@@ -72,7 +72,7 @@ class MongoSession():
         collection = self.db[data_type]
         try:
             _id = collection.insert_one(insert_data)
-            self.conn.end_request()
+            #self.conn.end_request()
             logging.info('Method: Insert | table: %s | result: Success ' % (data_type))
             return id
         except Exception, e:
@@ -82,7 +82,7 @@ class MongoSession():
         collection = self.db[data_type]
         try:
             _id = collection.update_one(find,update,True)
-            self.conn.end_request()
+            #self.conn.end_request()
             logging.info('Method: Upsert | table: %s | result: Success ' % (data_type))
             return id
         except Exception, e:
@@ -92,7 +92,7 @@ class MongoSession():
         collection = self.db[data_type]
         try:
             _id = collection.update(find,update)
-            self.conn.end_request()
+            #self.conn.end_request()
             logging.info('Method: Update | table: %s | result: Success ' % (data_type))
             return id
         except Exception, e:
@@ -102,7 +102,7 @@ class MongoSession():
         collection = self.db[data_type]
         try:
             _id = collection.find_one(find)
-            self.conn.end_request()
+            #self.conn.end_request()
             logging.info('Method: FindOne | table: %s | result: Success ' % (data_type))
             return _id
         except Exception, e:

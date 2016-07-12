@@ -68,6 +68,8 @@ class MyDaemon():
             self.push_statsd('vip.%s.inbytes' % (_statsd_vip),vip_per_dict['inbytes_sum_per'],'time')
             self.push_statsd('vip.%s.outbytes' % (_statsd_vip),vip_per_dict['outbytes_sum_per'],'time')
         try:
+            if not os.path.exists(cur_dir + '/data'):
+                os.makedirs(cur_dir + '/data')
             f = open(lvstraffic_result_file,'w')
             f.write(json.dumps(list,sort_keys=False, indent=4, separators=(',', ': ')))
             f.close
