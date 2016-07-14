@@ -12,7 +12,7 @@ import yaml
 import json
 from tornado import gen
 import pymongo
-from pymongo import Connection
+from pymongo import connection
 from tornado.options import define, options
 from setting import config ,agentlist
 
@@ -25,7 +25,7 @@ cur_dir = os.path.dirname(os.path.abspath(__file__))
 
 class mongo_conn():
     def __init__(self):
-        self.conn = Connection(options.mongodb,options.mongodb_port)
+        self.conn = connection(options.mongodb,options.mongodb_port)
     def db(self):
         return self.conn[options.db]
 
